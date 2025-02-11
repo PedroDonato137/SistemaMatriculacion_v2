@@ -13,11 +13,16 @@ public class MainApp {
 
         System.out.println("Iniciamos la aplicación...");
 
-        Modelo modelo = new Modelo();
-        Vista vista = new Vista();
-        Controlador controlador = new Controlador(modelo,vista);
+        try {
+            Modelo modelo = new Modelo();
+            Vista vista = new Vista();
+            Controlador controlador = new Controlador(modelo, vista);
 
-        controlador.comenzar();
+            controlador.comenzar();
+
+        }catch (Exception e){
+            throw new NullPointerException("ERROR: " + e);
+        }
 
         System.out.println("Cerramos la aplicación...");
         System.out.println("Hasta luego lucas");

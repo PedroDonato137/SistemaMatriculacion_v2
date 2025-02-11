@@ -9,7 +9,6 @@ import org.iesalandalus.programacion.utilidades.Entrada;
 
 import javax.naming.OperationNotSupportedException;
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class Vista {
 
