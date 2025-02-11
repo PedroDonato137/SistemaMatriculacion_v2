@@ -110,11 +110,18 @@ public class Matriculas {
     }
 
     public void borrar(Matricula matricula) throws OperationNotSupportedException {
+
+        Matricula matriculaEncontrado = null;
         if (matricula == null) {
             throw new NullPointerException("ERROR: No se puede borrar una matricula nula.");
         }
 
-        Matricula matriculaEncontrado = buscar(matricula);
+        for (int i = 0; i < getTamano(); i++){
+            if(coleccionMatriculas.get(i).getIdMatricula() == matricula.getIdMatricula()){
+                matriculaEncontrado = coleccionMatriculas.get(i);
+                break;
+            }
+        }
 
         if (matriculaEncontrado == null) {
             throw new OperationNotSupportedException("ERROR: No existe ninguna matricula como el codigo indicado.");

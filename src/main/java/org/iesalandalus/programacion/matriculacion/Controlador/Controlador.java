@@ -3,7 +3,6 @@ package org.iesalandalus.programacion.matriculacion.Controlador;
 import org.iesalandalus.programacion.matriculacion.modelo.Modelo;
 import org.iesalandalus.programacion.matriculacion.modelo.dominio.*;
 import org.iesalandalus.programacion.matriculacion.vista.Vista;
-
 import javax.naming.OperationNotSupportedException;
 import java.util.ArrayList;
 

@@ -9,6 +9,7 @@ import org.iesalandalus.programacion.utilidades.Entrada;
 
 import javax.naming.OperationNotSupportedException;
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Vista {
 
@@ -247,11 +248,15 @@ public class Vista {
 
         ArrayList<Matricula> matriculaMostar =  controller.getMatriculas();
 
-        if (matriculaMostar.isEmpty()) {
+        List<Matricula> matriculasOrdenadas = matriculaMostar.stream()
+                .sorted(Comparator.comparing(Matricula::getFechaMatriculacion, Comparator.reverseOrder())
+                        .thenComparing(m -> m.getAlumno().getNombre())).toList();
+
+        if (matriculasOrdenadas.isEmpty()) {
             throw new IllegalArgumentException("ERROR: No existen datos");
         }
 
-        for (Matricula matricula : matriculaMostar) {
+        for (Matricula matricula : matriculasOrdenadas) {
             System.out.println(matricula.imprimir());
         }
     }
@@ -265,6 +270,7 @@ public class Vista {
             throw new IllegalArgumentException("ERROR: No existen matricula de ese alumnos para mostrar.");
         }else{
             ArrayList<Matricula> matriculaMostrar = controller.getMatriculas(nuevoAlumno);
+
             for (Matricula matricula : matriculaMostrar) {
                 System.out.println(matricula.imprimir());
             }
@@ -275,6 +281,7 @@ public class Vista {
 
         CicloFormativo cicloFormativoMostrar = Consola.getCicloFormativoPorCodigo();
         ArrayList<Matricula> matriculaMostrar = controller.getMatriculas(cicloFormativoMostrar);
+
 
         if (matriculaMostrar.isEmpty()) {
             throw new IllegalArgumentException("ERROR: No existen matriculas con ese ciclo formativo para mostrar.");

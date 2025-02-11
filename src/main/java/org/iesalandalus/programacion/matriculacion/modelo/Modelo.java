@@ -2,28 +2,20 @@ package org.iesalandalus.programacion.matriculacion.modelo;
 
 import org.iesalandalus.programacion.matriculacion.modelo.dominio.*;
 import org.iesalandalus.programacion.matriculacion.modelo.negocio.*;
-import org.iesalandalus.programacion.matriculacion.vista.Vista;
-
 import javax.naming.OperationNotSupportedException;
-import java.lang.reflect.Array;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.StringTokenizer;
+
 
 public class Modelo {
-
-    // Constantes de la Clase
-    public static final int CAPACIDAD = 3;
 
     //Atributos de la clase
     private static Alumnos alumnos;
     private static Matriculas matriculas;
     private static Asignaturas asignaturas;
     private static CiclosFormativos cicloFormativos;
-
-
 
     // Datos ficticios de inicio para no estar todo el rato ingresando datos(Borrar)
     public static void datosInicio() throws OperationNotSupportedException {
@@ -48,7 +40,6 @@ public class Modelo {
         coleccionAsignaturas1.add(asignaturaFicticia1);
         coleccionAsignaturas1.add(asignaturaFicticia2);
         coleccionAsignaturas1.add(asignaturaFicticia3);
-
 
         Matricula matricula1= new Matricula(1, cursoAcademico, fecha, fecha1, alumno1, coleccionAsignaturas1);
 
